@@ -3,7 +3,7 @@ Theme Name: Foxy Brady Child
 Template: generatepress
 Version: 1.0
 */
-
+/*
 .hero {
   position: relative;
   min-height: 100vh;
@@ -51,4 +51,4 @@ Version: 1.0
 .hero__logo {
   width: min(320px, 70vw);
   margin-bottom: 2rem;
-}
+} */
