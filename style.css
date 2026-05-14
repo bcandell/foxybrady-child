@@ -28,7 +28,7 @@ video.hero__video {
 .site-logo {
   position: relative !important;
   display: inline-block;
-  background-color: #01113C !important; /* Updated backdrop color */
+  background-color: #01113C !important; /* Stage backdrop color */
   overflow: hidden !important;
 }
 
@@ -48,53 +48,59 @@ video.hero__video {
   content: '' !important;
   position: absolute !important;
   top: 0 !important;
-  /* WIDENED CANVAS: Shifts left and stretches to 300% so right edge never gaps */
   left: -100% !important;
   width: 300% !important;
   height: 250% !important;
   z-index: 1 !important;
-
-  /* PUSHED ORIGIN HIGHER: Helps the beams fan out wider across the frame */
   transform-origin: 50% -120% !important;
 
-  /* Keeps beams sharp but foggy */
-  filter: blur(8px) opacity(0.95) !important;
+  /* Slight blur adjustment to keep high-speed narrow rays clean */
+  filter: blur(6px) opacity(0.95) !important;
 }
 
-/* 4. Layer One: Left-swinging Cyan & Blue Haze Beams (NARROWED BEAMS) */
+/* 4. Layer One: Left-swinging cool tones (4 NARROW BEAMS) */
 .site-logo::before {
   background-image: conic-gradient(
-    from 165deg at 50% -120%,
-    transparent 0deg 30deg,
-    rgba(0, 255, 220, 0.85) 34deg, /* Narrow Cyan Ray */
-    transparent 38deg 65deg,
-    rgba(0, 90, 255, 0.9) 70deg,   /* Narrow Blue Ray */
-    transparent 75deg 360deg
+    from 155deg at 50% -120%,
+    transparent 0deg 15deg,
+    rgba(0, 255, 220, 0.85) 18deg, /* Ray 1: Cyan */
+    transparent 21deg 35deg,
+    rgba(0, 90, 255, 0.9) 38deg,   /* Ray 2: Blue */
+    transparent 41deg 60deg,
+    rgba(0, 255, 150, 0.85) 63deg, /* Ray 3: Mint Green */
+    transparent 66deg 80deg,
+    rgba(0, 150, 255, 0.9) 83deg,  /* Ray 4: Light Blue */
+    transparent 86deg 360deg
   ) !important;
-  animation: kinta-left 4s ease-in-out infinite alternate !important;
+  /* SPEED BOOST: Cut down to 2 seconds for aggressive, high-energy movement */
+  animation: kinta-left 2s ease-in-out infinite alternate !important;
 }
 
-/* 5. Layer Two: Right-swinging Magenta & Violet Haze Beams (NARROWED BEAMS) */
+/* 5. Layer Two: Right-swinging warm/neon tones (4 NARROW BEAMS) */
 .site-logo::after {
   background-image: conic-gradient(
-    from 145deg at 50% -120%,
-    transparent 0deg 25deg,
-    rgba(255, 0, 130, 0.85) 29deg, /* Narrow Magenta Ray */
-    transparent 33deg 60deg,
-    rgba(140, 0, 255, 0.85) 65deg, /* Narrow Violet Ray */
-    transparent 70deg 360deg
+    from 135deg at 50% -120%,
+    transparent 0deg 10deg,
+    rgba(255, 0, 130, 0.85) 13deg, /* Ray 1: Magenta */
+    transparent 16deg 30deg,
+    rgba(140, 0, 255, 0.85) 33deg, /* Ray 2: Violet */
+    transparent 36deg 55deg,
+    rgba(255, 100, 0, 0.85) 58deg, /* Ray 3: Neon Orange */
+    transparent 61deg 75deg,
+    rgba(255, 0, 200, 0.85) 78deg, /* Ray 4: Hot Pink */
+    transparent 81deg 360deg
   ) !important;
-  animation: kinta-right 3.2s ease-in-out infinite alternate !important;
+  /* SPEED BOOST: Cut down to 1.6 seconds to match the 5:4 ratio at high speed */
+  animation: kinta-right 1.6s ease-in-out infinite alternate !important;
 }
 
-/* 6. Asymmetrical counter-rotation cycles that force continuous crossover */
+/* 6. High-velocity sweeping angles to sweep the full width instantly */
 @keyframes kinta-left {
-  0% { transform: rotate(-22deg); } /* Wider rotation range to hit the right edge */
-  100% { transform: rotate(18deg); }
+  0% { transform: rotate(-26deg); }
+  100% { transform: rotate(22deg); }
 }
 
 @keyframes kinta-right {
-  0% { transform: rotate(18deg); }  /* Wider rotation range to hit the right edge */
-  100% { transform: rotate(-24deg); }
+  0% { transform: rotate(22deg); }
+  100% { transform: rotate(-28deg); }
 }
-
