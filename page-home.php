@@ -6,11 +6,10 @@
 get_header();
 
 $bg_img       = get_field('bg_img');
-$bg_video_mp4 = get_field('bgVideo_mp4');
-$bg_video_webm = get_field('bgVideo_webm');
+$bg_video_mp4 = get_field('bgvideo_mp4');
+$bg_video_webm = get_field('bgvideo_webm');
 $img_overlay  = get_field('img_overlay');
 
-echo '<pre>'; var_dump($bg_video_mp4, $bg_video_webm); echo '</pre>'; die();
 ?>
 
 <section class="hero">
