@@ -6,6 +6,10 @@ Version: 1.0
 section.hero {
     width: 100%;
     position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 video.hero__video {
     width: 100%;
@@ -19,4 +23,60 @@ video.hero__video {
     z-index: 10;
     left: calc(50% - 10vw);
     top: calc(50% - 200px);
+}
+img.header-image.is-logo-image {
+   object-fit: cover;
+
+  /* Deep stage background color */
+  background-color: #0b0c10;
+
+  /* Conic gradient originating above the top center (50% horizontally, -20% vertically) */
+  background-image: conic-gradient(
+    from 150deg at 50% -20%,
+
+    /* Smoky dark gap */
+    rgba(11, 12, 16, 1) 0deg 10deg,
+
+    /* Fuzzy Magenta Beam (fades in and out over 12 degrees) */
+    rgba(255, 0, 85, 0) 10deg,
+    rgba(255, 0, 85, 0.7) 16deg,
+    rgba(255, 0, 85, 0) 22deg,
+
+    /* Smoky dark gap */
+    rgba(11, 12, 16, 1) 22deg 35deg,
+
+    /* Fuzzy Cyan Beam */
+    rgba(0, 255, 204, 0) 35deg,
+    rgba(0, 255, 204, 0.8) 42deg,
+    rgba(0, 255, 204, 0) 49deg,
+
+    /* Smoky dark gap */
+    rgba(11, 12, 16, 1) 49deg 60deg,
+
+    /* Fuzzy Blue Beam */
+    rgba(0, 85, 255, 0) 60deg,
+    rgba(0, 85, 255, 0.7) 66deg,
+    rgba(0, 85, 255, 0) 72deg,
+
+    /* End gap closing the sequence loop */
+    rgba(11, 12, 16, 1) 72deg 360deg
+  );
+
+  /* Make the background oversize so it can sweep back and forth cleanly */
+  background-size: 180% 180%;
+  background-position: center top;
+
+  /* CSS blur overlay acts like physical airborne fog particles */
+  filter: blur(1px) drop-shadow(0 0 20px rgba(0, 85, 255, 0.2));
+
+  /* Replicates the sweep/pan movement of a stage light hanging overhead */
+  animation: light-sweep 6s ease-in-out infinite alternate;
+}
+@keyframes light-sweep {
+  0% {
+    background-position: 20% top;
+  }
+  100% {
+    background-position: 80% top;
+  }
 }
