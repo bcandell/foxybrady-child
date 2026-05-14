@@ -10,6 +10,7 @@ section.hero {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40px 0 60px;
 }
 video.hero__video {
     width: 100%;
@@ -19,16 +20,18 @@ video.hero__video {
 }
 .hero__content {
     width: 20vw;
-    position: relative;
     z-index: 10;
-    left: calc(50% - 10vw);
-    top: calc(50% - 200px);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, .6);
 }
 /* 1. Transform the existing logo container into the dark stage void */
 .site-logo {
   position: relative !important;
   display: inline-block;
-  background-color: #01113C !important; /* Stage backdrop color */
+  background-color: #1c0095 !important; /* Stage backdrop color */
   overflow: hidden !important;
 }
 
