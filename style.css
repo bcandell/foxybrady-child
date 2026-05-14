@@ -27,19 +27,19 @@ video.hero__video {
 /* 1. Transform the existing logo container into the dark stage void */
 .site-logo {
   position: relative !important;
-  display: inline-block; /* Keeps container strictly bound to the logo dimensions */
-  background-color: #050608 !important; /* Rich black stage backdrop */
-  overflow: hidden !important; /* Prevents giant swinging beams from leaking out */
+  display: inline-block;
+  background-color: #020304 !important; /* Slightly deeper black to increase contrast */
+  overflow: hidden !important;
 }
 
 /* 2. Style your target image class to float cleanly over the lights */
 .site-logo img.header-image.is-logo-image {
   position: relative !important;
-  z-index: 10 !important; /* Guarantees transparent image layers sit on top */
+  z-index: 10 !important;
   display: block;
   max-width: 100%;
   height: auto;
-  pointer-events: none; /* Allows mouse interactions to pass straight through */
+  pointer-events: none;
 }
 
 /* 3. Global setup for the overlapping volumetric light rays */
@@ -48,7 +48,7 @@ video.hero__video {
   content: '' !important;
   position: absolute !important;
   top: 0 !important;
-  left: -50% !important; /* Oversizes width so sweeping beams don't cut off at walls */
+  left: -50% !important;
   width: 200% !important;
   height: 200% !important;
   z-index: 1 !important;
@@ -56,34 +56,36 @@ video.hero__video {
   /* Pins origin point far above the logo box boundary */
   transform-origin: 50% -75% !important;
 
-  /* Heavy blur strips sharp vector lines into dense airborne stage haze */
-  filter: blur(15px) opacity(0.7) !important;
+  /* REDUCED BLUR & HIGHER OPACITY: Keeps beams concentrated and much brighter */
+  filter: blur(8px) opacity(0.95) !important;
 }
 
-/* 4. Layer One: Left-swinging Cyan & Blue Haze Beams */
+/* 4. Layer One: Left-swinging Cyan & Blue Haze Beams (MAX BRIGHTNESS) */
 .site-logo::before {
   background-image: conic-gradient(
     from 165deg at 50% -75%,
     transparent 0deg 25deg,
-    rgba(0, 255, 220, 0.45) 40deg, /* Massive Cyan Ray */
+    rgba(0, 255, 220, 0.85) 40deg, /* Jacked up opacity from 0.45 to 0.85 */
     transparent 55deg 70deg,
-    rgba(0, 90, 255, 0.5) 85deg,   /* Massive Blue Ray */
+    rgba(0, 90, 255, 0.9) 85deg,   /* Jacked up opacity from 0.5 to 0.9 */
     transparent 100deg 360deg
   ) !important;
-  animation: kinta-left 10s ease-in-out infinite alternate !important;
+  /* FASTER SPEED: Cut from 10s down to 4s for high-energy motion */
+  animation: kinta-left 4s ease-in-out infinite alternate !important;
 }
 
-/* 5. Layer Two: Right-swinging Magenta & Violet Haze Beams */
+/* 5. Layer Two: Right-swinging Magenta & Violet Haze Beams (MAX BRIGHTNESS) */
 .site-logo::after {
   background-image: conic-gradient(
     from 145deg at 50% -75%,
     transparent 0deg 20deg,
-    rgba(255, 0, 130, 0.45) 40deg, /* Massive Magenta Ray */
+    rgba(255, 0, 130, 0.85) 40deg, /* Jacked up opacity from 0.45 to 0.85 */
     transparent 60deg 75deg,
-    rgba(140, 0, 255, 0.45) 90deg, /* Massive Violet Ray */
+    rgba(140, 0, 255, 0.85) 90deg, /* Jacked up opacity from 0.45 to 0.85 */
     transparent 110deg 360deg
   ) !important;
-  animation: kinta-right 8s ease-in-out infinite alternate !important;
+  /* FASTER SPEED: Cut from 8s down to 3.2s to maintain asymmetrical crossing */
+  animation: kinta-right 3.2s ease-in-out infinite alternate !important;
 }
 
 /* 6. Asymmetrical counter-rotation cycles that force continuous crossover */
